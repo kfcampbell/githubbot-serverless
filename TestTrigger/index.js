@@ -8,22 +8,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const GitHub = require("github-api");
 function run(context, req) {
     return __awaiter(this, void 0, void 0, function* () {
         context.log('JavaScript HTTP trigger function processed a request.');
-        if (req.query.name || (req.body && req.body.name)) {
-            context.res = {
-                // status: 200, /* Defaults to 200 */
-                body: "Hello! " + (req.query.name || req.body.name) + ' motherfucker'
-            };
-        }
-        else {
-            context.res = {
-                status: 400,
-                body: "Please pass a name on the query string or in the request body"
-            };
-        }
-        context.done();
+        var gh = new GitHub({
+            token: process.env['GithubAccessToken']
+        });
+        // note: make sure to use the following callback arguments otherwise everything is null
+        const repo = gh.getRepo('kfcampbell', 'GithubBotRepo');
+        const commit = repo.getCommit('4663022e221663471d9466a618f6401912088692', (error, result, request) => {
+            context.log('got a commit maybe? ' + result);
+        });
+        // todo: figure out how to get the content of a specific file
+        // ideas: get sha and then get blob. something might have to be base64 encoded or decoded
+        context.res = {
+            body: 'when i met you mom she told me i was handsome'
+        };
     });
 }
 exports.run = run;

@@ -1,6 +1,12 @@
 # githubbot
 
 ## todo
-    - pick github api npm package or roll own
-        - bindings for typescript for npm package???
-    - implement the real thing
+    - features to implement
+        - basic file updating
+        - randomized commit message
+        - randomized amount of times/day committing
+
+## miscellaneous resources
+    - basic typescript example: https://github.com/TsuyoshiUshio/TypeScriptCosmosSpike
+    - azure functions core tools (including function setup): https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local
+    - docs for github api npm wrapper: http://github-tools.github.io/github/docs/3.1.0/Repository.html
