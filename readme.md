@@ -3,6 +3,7 @@
 ## todo
     - randomized amount of times/day committing
     - tests
+    - use strong typing instead of __any__ everywhere
 
 ## miscellaneous resources
     - basic typescript example: https://github.com/TsuyoshiUshio/TypeScriptCosmosSpike
