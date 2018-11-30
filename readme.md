@@ -1,7 +1,6 @@
 # githubbot
 
 ## todo
-    - randomized commit message
     - randomized amount of times/day committing
     - tests
 
