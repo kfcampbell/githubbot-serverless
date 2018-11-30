@@ -167,7 +167,9 @@ typings/
 index.js
 */index.js
 **/index.js
+TimerTrigger/index.js
 CommitMessage.js
 */CommitMessage.js
 **/CommitMessage.js
+TimerTrigger/Utils/CommitMessage.js
 
