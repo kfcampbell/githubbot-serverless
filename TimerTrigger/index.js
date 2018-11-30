@@ -9,34 +9,31 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const GitHub = require("github-api");
-function run(context, req) {
+module.exports = function (context, myTimer) {
     return __awaiter(this, void 0, void 0, function* () {
-        context.log('JavaScript HTTP trigger function processed a request.');
         var gh = new GitHub({
             token: process.env['GithubAccessToken']
         });
-        // note: make sure to use the following callback arguments otherwise everything is null
         const repo = gh.getRepo('kfcampbell', 'githubbot-serverless');
         repo.getSha('master', 'updates/daily_updates.txt', (error, result, request) => {
-            context.log('got the sha!' + result);
             if (error) {
                 context.log('error getting sha! ' + error);
                 return;
             }
             repo.getBlob(result.sha, (error, result, request) => {
                 context.log('found the blob!' + result);
-                const newContents = `This page was last updated on: ${new Date().toUTCString()}`;
-                repo.writeFile('master', 'updates/daily_updates.txt', newContents, 'This is a commit message!', {
+                const newContents = `This file was last updated on: ${new Date().toUTCString()}`;
+                repo.writeFile('master', 'updates/daily_updates.txt', newContents, 'Automated update!', {
                     encode: true
                 }, (error, result, request) => {
-                    context.log('maybe we wrote a file???' + result);
+                    context.log('timer trigger writin files ' + result);
                 });
             });
         });
-        context.res = {
-            body: 'when i met your mom she told me i was handsome'
-        };
+        if (myTimer.isPastDue) {
+            context.log('JavaScript is running late!');
+        }
+        const timeStamp = new Date().toISOString();
+        context.log('end of timer updating', timeStamp);
     });
-}
-exports.run = run;
-;
+};
