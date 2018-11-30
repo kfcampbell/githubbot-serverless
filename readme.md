@@ -1,10 +1,9 @@
 # githubbot
 
 ## todo
-    - features to implement
-        - basic file updating
-        - randomized commit message
-        - randomized amount of times/day committing
+    - randomized commit message
+    - randomized amount of times/day committing
+    - tests
 
 ## miscellaneous resources
     - basic typescript example: https://github.com/TsuyoshiUshio/TypeScriptCosmosSpike
