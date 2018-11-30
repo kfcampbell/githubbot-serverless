@@ -22,8 +22,13 @@ function run(context, req) {
         });
         // todo: figure out how to get the content of a specific file
         // ideas: get sha and then get blob. something might have to be base64 encoded or decoded
+        // note: need to create directory in repo to actually house the files.
+        // have to remember to ignore when deploying to function.
+        const sha = repo.getSha('updates/daily_updates.txt', (error, result, request) => {
+            context.log('got the sha!' + result);
+        });
         context.res = {
-            body: 'when i met you mom she told me i was handsome'
+            body: 'when i met your mom she told me i was handsome'
         };
     });
 }
