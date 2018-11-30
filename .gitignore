@@ -164,3 +164,10 @@ typings/
 
 # End of https://www.gitignore.io/api/node,macos,visualstudiocode
 
+index.js
+*/index.js
+**/index.js
+CommitMessage.js
+*/CommitMessage.js
+**/CommitMessage.js
+
