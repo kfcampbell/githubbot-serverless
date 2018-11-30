@@ -164,3 +164,12 @@ typings/
 
 # End of https://www.gitignore.io/api/node,macos,visualstudiocode
 
+index.js
+*/index.js
+**/index.js
+TimerTrigger/index.js
+CommitMessage.js
+*/CommitMessage.js
+**/CommitMessage.js
+TimerTrigger/Utils/CommitMessage.js
+
