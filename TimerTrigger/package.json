@@ -1,10 +1,10 @@
 {
   "name": "timertrigger",
   "version": "1.0.0",
-  "description": "The `TimerTrigger` makes it incredibly easy to have your functions executed on a schedule. This sample demonstrates a simple use case of calling your function every 5 minutes.",
+  "description": "It automatically updates a github repository.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ts-node/register Utils/**/*.spec.ts"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +13,13 @@
     "@types/request": "^2.48.1",
     "github-api": "^3.0.0",
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.1"
   }
 }
