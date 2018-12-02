@@ -1,6 +1,7 @@
 import * as GitHub from 'github-api';
 import { getRandomCommitMessage } from './Utils/CommitMessage';
 import { getNumberOfCommits } from './Utils/Random';
+import { sleep } from './Utils/Sleep';
 
 module.exports = async function (context: any, myTimer: any) {
 
@@ -38,9 +39,7 @@ module.exports = async function (context: any, myTimer: any) {
             });
         });
 
-        const secondsToWait = 5;
-        const timeToWaitTo = new Date().getTime() + (secondsToWait * 1000);
-        while(new Date().getTime() <= timeToWaitTo) {} // burn that thread baby
+        sleep(5);
     }
 
     if (myTimer.isPastDue) {
