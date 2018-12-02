@@ -7,6 +7,8 @@ module.exports = async function (context: any, myTimer: any) {
 
     const numberOfCommits = getNumberOfCommits(8);
 
+    // for some reason, either sleeping or running this function in a loop prevents anything from happening on github.
+    // todo: investigate this
     for (let i = 0; i < numberOfCommits; i++) {
         getRandomCommitMessage(function (err: any, res: any, body: string) {
             let commitMessage = 'Default commit message for automated updates.';
